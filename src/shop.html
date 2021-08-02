@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Demo Store</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <!-- header section  -->
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="https://via.placeholder.com/50" alt=""></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="shop.html">SHOP</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- main section  -->
+    <div>
+        <h1 class="heading">
+            Products:
+        </h1>
+    </div>
+    <main>
+        <div class="products">
+            <!-- dynamically generated html -->
+                <!-- div id="", class="cards"
+                    img
+                    h3 tag == title
+                    p tag == price -->
+        </div>
+    </main>
+    <!-- footer section  -->
+    <footer>
+        <div class="footer">
+            <p>@copyright 2021</p>
+            <p>Designed by: <span> <a href="http://davisokioma.com">SirDavis</a> </span></p>
+        </div>
+    </footer>
+
+    <script>
+        // sample json products data
+    const raw_product = [
+    {
+      "_id": "610818a639ed0173fa2daa54",
+      "title": "N",
+      "price": "$3,455.22",
+      "img": "http://placehold.it/200x200"
+    },
+    {
+      "_id": "610818a6347de7ab096ef4a6",
+      "title": "D",
+      "price": "$2,871.74",
+      "img": "http://placehold.it/200x200"
+    },
+    {
+      "_id": "610818a632de0426a6b87919",
+      "title": "V",
+      "price": "$1,495.14",
+      "img": "http://placehold.it/200x200"
+    },
+    {
+      "_id": "610818a6f7d0ea78b9fca80e",
+      "title": "E",
+      "price": "$2,256.81",
+      "img": "http://placehold.it/200x200"
+    },
+    {
+      "_id": "610818a64fa0d6c1325b1296",
+      "title": "A",
+      "price": "$3,258.52",
+      "img": "http://placehold.it/200x200"
+    },
+    {
+    "_id": "6108186780da980fef38663d",
+    "title": "A",
+    "price": "$3,313.17",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867707cf3ff903b3fa7",
+    "title": "A",
+    "price": "$3,416.48",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "610818673edc73b890a034fa",
+    "title": "A",
+    "price": "$1,567.06",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867fee88f375bbfb4c4",
+    "title": "N",
+    "price": "$2,513.16",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "6108186713144f24e784e21e",
+    "title": "C",
+    "price": "$3,115.62",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867b7b0500942f35a2f",
+    "title": "E",
+    "price": "$3,227.45",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867c37187672f2265cc",
+    "title": "M",
+    "price": "$1,630.10",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "610818674046799e6f6381e2",
+    "title": "A",
+    "price": "$1,307.80",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867e867c4890fabf712",
+    "title": "A",
+    "price": "$3,608.33",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "6108186726f276b7b055559d",
+    "title": "E",
+    "price": "$2,594.17",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "6108186709d04c3cdf469437",
+    "title": "C",
+    "price": "$3,038.99",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867a2bfd0bbd5ee27cc",
+    "title": "M",
+    "price": "$3,886.76",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867f8b92011ce93f634",
+    "title": "V",
+    "price": "$2,237.05",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "6108186739a39610a43bbb48",
+    "title": "A",
+    "price": "$3,187.90",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867b788122907f4db42",
+    "title": "E",
+    "price": "$3,581.41",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867e21d04ee323e5811",
+    "title": "P",
+    "price": "$1,176.50",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "6108186798c40c75c5e144f3",
+    "title": "P",
+    "price": "$3,644.66",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867d8108075fe4881e3",
+    "title": "E",
+    "price": "$1,487.10",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867c4114f27cee36fec",
+    "title": "P",
+    "price": "$2,838.30",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867f586d967da9aa2f4",
+    "title": "R",
+    "price": "$1,526.20",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "610818675bd809ceec137f88",
+    "title": "S",
+    "price": "$1,067.33",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867e345be78be051488",
+    "title": "V",
+    "price": "$2,605.70",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "610818677b8567610158440a",
+    "title": "M",
+    "price": "$1,903.98",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "6108186781903ac05f0b8350",
+    "title": "E",
+    "price": "$2,133.59",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "610818674fd6cf7235e4e5c3",
+    "title": "C",
+    "price": "$3,792.85",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867a31310b7ce5f2db0",
+    "title": "N",
+    "price": "$1,381.83",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867a19d75f9e5ea415b",
+    "title": "A",
+    "price": "$1,816.26",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "610818671ff368d929e3472d",
+    "title": "A",
+    "price": "$2,054.85",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867b40860e284e66424",
+    "title": "S",
+    "price": "$1,046.46",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "610818678c5cb8a557b59f9a",
+    "title": "L",
+    "price": "$3,720.61",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867b6e4012b755d8996",
+    "title": "A",
+    "price": "$3,674.64",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "6108186731920effbe2f7f4a",
+    "title": "C",
+    "price": "$1,601.62",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867caa51f30cba4dcd6",
+    "title": "N",
+    "price": "$2,156.02",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "6108186790786e31e9bb99d8",
+    "title": "Q",
+    "price": "$1,737.31",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867a02b040310e2ab86",
+    "title": "D",
+    "price": "$3,525.85",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "6108186729285bdb2d722cdd",
+    "title": "S",
+    "price": "$3,442.85",
+    "img": "http://placehold.it/200x200"
+  },
+  {
+    "_id": "61081867a0013b046920b895",
+    "title": "N",
+    "price": "$3,872.54",
+    "img": "http://placehold.it/200x200"
+  }
+    ];
+
+    const createProduct = function(){
+            raw_product.forEach((product) => {
+            const newDiv = document.createElement("div");
+            newDiv.setAttribute("id", product._id);
+            newDiv.setAttribute("class", "cards");
+
+            const newImage = document.createElement("img");
+            newImage.setAttribute("src", product.img);
+
+            const newTitle = document.createElement("h3");
+            newTitle.innerHTML = `Title: ${product.title}`;
+
+            const newPrice = document.createElement("p");
+            newPrice.innerHTML = `Price: ${product.price}`;
+
+            const orderButton = document.createElement("button");
+            orderButton.setAttribute("id", "to-order");
+            orderButton.setAttribute("class", "to-shop");
+            orderButton.innerHTML = "Order Now";
+
+            newDiv.appendChild(newImage);
+            newDiv.appendChild(newTitle);
+            newDiv.appendChild(newPrice);
+            newDiv.appendChild(orderButton);
+
+            const parentDiv = document.querySelector(".products");
+            parentDiv.appendChild(newDiv);
+        });
+    };
+
+    createProduct();
+
+    </script>
+</body>
+</html>
