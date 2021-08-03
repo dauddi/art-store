@@ -1,3 +1,4 @@
+/*noinspection CssUnknownTarget*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
 * {
@@ -7,7 +8,7 @@
 }
 
 body {
-    background-image: url"../images/bg.jpg";
+    background-color: beige;
 }
 
 header {
@@ -16,8 +17,10 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: #003049;
-    position: fixed top;
+    position: absolute;
+    top: 0;
 }
+
 nav {
     background-color: #003049;
 }
@@ -28,7 +31,7 @@ nav > ul {
     margin: .8em;
 }
 
-nav > ul > li > a{
+nav > ul > li > a {
     text-decoration: none;
     padding: .5em;
     font-size: 14px;
@@ -38,13 +41,11 @@ nav > ul > li > a{
 
 main {
     width: 100%;
-    min-height: 520px;
+    min-height: 100%;
     margin: 5em 0;
-    margin-bottom: 10px;
-    background-image: inherit;
 }
 
-.text{
+.text {
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -62,9 +63,11 @@ main > .text * {
 .sub-heading {
     font-weight: 700;
 }
-main > div{
+
+main > div {
     text-align: center;
 }
+
 .to-shop {
     border: 1px solid black;
     padding: 10px;
@@ -74,36 +77,43 @@ main > div{
     font-weight: 700;
     text-decoration: none;
 }
+
 .to-shop a {
     text-decoration: none;
 }
 
-.graphic img{
+.graphic img {
     display: none;
 }
+
+/*shop page*/
 
 .products {
     display: flex;
     flex-wrap: wrap;
-    gap: 1em;
+    gap: .5em;
     text-align: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .cards {
     border: 1px solid #003049;
-    padding: .5em;
+    padding: .2em;
+    height: 20em;
 }
 
 .cards > * {
     padding: .4em;
 }
 
-.footer{
+.footer {
+    width: 100%;
     background-color: #003049;
-    position: fixed bottom;
+    position: relative;
+    bottom: 0;
     text-align: center;
     color: white;
+    margin-top: 7px;
 }
 
 .footer a {
@@ -111,36 +121,53 @@ main > div{
     color: #D62828;
 }
 
-/* checkout */
+/*checkout*/
 
-.row {
+.checkout_main {
+    width: 100%;
+    display: flex;
     flex-direction: column-reverse;
-}
-.col-25 {
-    margin-bottom: 20px;
+    justify-content: center;
+    box-shadow: #b4b472;
+    border-radius: 8px;
+    text-align: center;
 }
 
+.checkout_main > * {
+    flex: 1;
+    margin: 0;
+}
+.checkout_main > .checkout_form {
+    border: 1px solid black;
+    margin: 2em .4em;
+    background-color: #b4b472;
+    padding: 2em;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
+.checkout_main .checkout_form > form > * {
+    padding: 1em 0;
+}
+
+.checkout_main .checkout_form > button{
+    margin: 3em 0;
+}
 
 @media screen and (min-width: 750px) {
     main {
         width: 100%;
-        height: auto;
+        min-height: 1050px;
         display: flex;
         flex-wrap: wrap;
         padding: 2em;
         justify-content: center;
-        min-height: 1080px;
     }
+
     main > * {
         flex-basis: 100%;
     }
-    main > div > .text{
-        flex: 1;
-    }
-    main > div > img {
-        flex: 3;
-    }
+
     main div button a {
         text-decoration: none;
         cursor: pointer;
@@ -148,176 +175,28 @@ main > div{
         font-size: 20px;
     }
 
-    main > div > .heading{
+    main > div > .heading {
         font-weight: 900;
         font-size: 64px;
         text-align: center;
     }
-    main > div > .sub-heading{
+
+    main > div > .sub-heading {
         font-weight: 700;
         font-size: 40px;
         text-align: left;
     }
-    .graphic img{
+
+    .graphic img {
         width: fit-content;
         height: auto;
         margin-right: 10em;
     }
 
-    /* checkout */
-
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 -16px;
-      }
-      
-      .col-25 {
-        flex: 25%;
-      }
-      
-      .col-50 {
-        flex: 50%;
-      }
-      
-      .col-75 {
-        flex: 75%;
-      }
-      
-      .col-25,
-      .col-50,
-      .col-75 {
-        padding: 0 16px;
-      }
-      
-      .container {
-        background-color: #f2f2f2;
-        padding: 5px 20px 15px 20px;
-        border: 1px solid lightgrey;
-        border-radius: 3px;
-      }
-      
-      input[type=text] {
+    footer {
         width: 100%;
-        margin-bottom: 20px;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-      }
-      
-      label {
-        margin-bottom: 10px;
-        display: block;
-      }
-      
-      .icon-container {
-        margin-bottom: 20px;
-        padding: 7px 0;
-        font-size: 24px;
-      }
-      
-      .btn {
-        background-color: #04AA6D;
-        color: white;
-        padding: 12px;
-        margin: 10px 0;
-        border: none;
-        width: 100%;
-        border-radius: 3px;
-        cursor: pointer;
-        font-size: 17px;
-      }
-      
-      .btn:hover {
-        background-color: #45a049;
-      }
-      
-      span.price {
-        float: right;
-        color: grey;
-      }
-
-};
-
-/* checkout */
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -16px;
-  }
-  
-  .col-25 {
-    flex: 25%;
-  }
-  
-  .col-50 {
-    flex: 50%;
-  }
-  
-  .col-75 {
-    flex: 75%;
-  }
-  
-  .col-25,
-  .col-50,
-  .col-75 {
-    padding: 0 16px;
-  }
-  
-  .container {
-    background-color: #f2f2f2;
-    padding: 5px 20px 15px 20px;
-    border: 1px solid lightgrey;
-    border-radius: 3px;
-  }
-  
-  input[type=text] {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-  }
-  
-  label {
-    margin-bottom: 10px;
-    display: block;
-  }
-  
-  .icon-container {
-    margin-bottom: 20px;
-    padding: 7px 0;
-    font-size: 24px;
-  }
-  
-  .btn {
-    background-color: #04AA6D;
-    color: white;
-    padding: 12px;
-    margin: 10px 0;
-    border: none;
-    width: 100%;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 17px;
-  }
-  
-  .btn:hover {
-    background-color: #45a049;
-  }
-  
-  span.price {
-    float: right;
-    color: grey;
-  }
-  
-  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (and change the direction - make the "cart" column go on top) */
-  @media screen and (max-width: 750px) {
-    .row {
-      flex-direction: column-reverse;
+        position: relative;
+        bottom: 0;
     }
-    .col-25 {
-      margin-bottom: 20px;
-    }
-  }
+}
+
